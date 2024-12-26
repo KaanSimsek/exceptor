@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class ApiExceptionControllerAdvice {
+public class HttpResponseExceptionControllerAdvice extends ControllerAdvice {
 
     @ExceptionHandler(HttpResponseException.class)
     public ResponseEntity<?> handleApiException(HttpResponseException exception) {
-        return new ResponseEntity<>(exception.getMessage(), exception.getStatus());
+        return new ResponseEntity<>(convert(exception), exception.getStatus());
     }
 }
