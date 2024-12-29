@@ -1,8 +1,12 @@
+import java.net.URI
+
 plugins {
-	java
+	id("java-library")
 	id("org.springframework.boot") version "3.4.1"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("maven-publish")
+	id("com.github.ben-manes.versions") version "0.51.0"
+	id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.3"
 }
 
 group = "io.exceptor"
@@ -22,9 +26,6 @@ repositories {
 publishing {
 	publications {
 		create<MavenPublication>("mavenJava") {
-			groupId = "io.exceptor"
-			artifactId = "exceptor"
-			version = "0.0.1"
 			from(components["java"])
 			versionMapping {
 				usage("java-api") {
@@ -37,6 +38,42 @@ publishing {
 		}
 	}
 }
+
+signing {
+	val keyId = System.getenv("SIGNING_KEYID")
+	val secretKey = System.getenv("SIGNING_SECRETKEY")
+
+	useInMemoryPgpKeys(keyId, secretKey)
+}
+
+centralPortal {
+	username = System.getenv("SONATYPE_USERNAME")
+	password = System.getenv("SONATYPE_PASSWORD")
+
+	pom {
+		name = "Exceptor"
+		description = "A api exception library for SpringBoot"
+		url = "https://github.com/KaanSimsek/exceptor"
+		licenses {
+			license {
+				name = "The Apache License, Version 2.0"
+				url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+			}
+		}
+		developers {
+			developer {
+				id = "0"
+				name = "Kaan Simsek"
+				email = "ksimsek19@edu.tr"
+			}
+		}
+		scm {
+			url.set("https://github.com/kaansimsek/exceptor")
+		}
+
+	}
+}
+
 
 extra["springCloudVersion"] = "2023.0.3"
 
