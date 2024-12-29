@@ -42,8 +42,9 @@ publishing {
 signing {
 	val keyId = System.getenv("SIGNING_KEYID")
 	val secretKey = System.getenv("SIGNING_SECRETKEY")
+	val passphrase = System.getenv("SIGNING_PASSPHRASE")
 
-	useInMemoryPgpKeys(keyId, secretKey)
+	useInMemoryPgpKeys(keyId, secretKey, passphrase)
 }
 
 centralPortal {
