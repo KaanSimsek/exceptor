@@ -22,6 +22,7 @@ jobs:
           echo "Publishing version '${VERSION}'"
           ./gradlew "-Pversion=$VERSION" publishToCentralPortal
         env:
+          SIGNING_PASSPHRASE: ${{ secrets.SIGNING_PASSPHRASE }}
           SIGNING_SECRETKEY: ${{ secrets.SIGNING_SECRETKEY }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
