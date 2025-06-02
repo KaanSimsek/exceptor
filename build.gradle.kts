@@ -96,3 +96,8 @@ dependencyManagement {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.withType<Javadoc>().configureEach {
+	// Suppress doclint warnings and errors
+	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
+}
