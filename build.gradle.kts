@@ -9,7 +9,7 @@ plugins {
 	id("net.thebugmc.gradle.sonatype-central-portal-publisher") version "1.2.3"
 }
 
-group = "io.exceptor"
+group = "io.github.kaansimsek"
 version = "0.0.1"
 
 java {
