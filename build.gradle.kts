@@ -1,5 +1,3 @@
-import java.net.URI
-
 plugins {
 	id("java-library")
 	id("org.springframework.boot") version "3.4.1"
@@ -10,7 +8,7 @@ plugins {
 }
 
 group = "io.github.kaansimsek"
-version = "0.0.2"
+version = "0.0.3"
 
 java {
 	toolchain {
@@ -102,4 +100,8 @@ tasks.withType<Test> {
 tasks.withType<Javadoc>().configureEach {
 	// Suppress doclint warnings and errors
 	(options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
+}
+
+tasks.jar {
+	archiveClassifier.set("")
 }
