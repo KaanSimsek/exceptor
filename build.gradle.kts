@@ -42,12 +42,13 @@ publishing {
 }
 
 signing {
-	val keyId = System.getenv("SIGNING_KEYID")
 	val secretKey = System.getenv("SIGNING_SECRETKEY")
 	val passphrase = System.getenv("SIGNING_PASSPHRASE")
 
-	useInMemoryPgpKeys(keyId, secretKey, passphrase)
+	useInMemoryPgpKeys(secretKey, passphrase)
+	sign(publishing.publications["mavenJava"])
 }
+
 
 centralPortal {
 	username = System.getenv("SONATYPE_USERNAME")
