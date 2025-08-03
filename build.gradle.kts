@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.kaansimsek"
-version = "0.0.3"
+version = "0.0.4"
 
 java {
 	toolchain {
@@ -64,7 +64,7 @@ centralPortal {
 		}
 		developers {
 			developer {
-				id = "0"
+				id = "1"
 				name = "Kaan Simsek"
 				email = "ksimsek19@edu.tr"
 			}
