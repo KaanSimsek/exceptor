@@ -22,7 +22,7 @@ public class FeignExceptionControllerAdvice extends ControllerAdvice {
         try {
             var httpResponseException = objectMapper.readValue(exception.contentUTF8(), HttpResponseException.class);
             return new ResponseEntity<>(convert(httpResponseException), httpResponseException.getStatus());
-        } catch (Throwable e) { // Todo: If can not convert to HttpResponseException then check type of the exception and return response according to it
+        } catch (Throwable e) {
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

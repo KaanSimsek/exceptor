@@ -3,9 +3,9 @@ package com.exceptor.exceptor.exception;
 import org.springframework.http.HttpStatus;
 
 public class HttpResponseException extends RuntimeException{
-    private String message;
-    private String code;
-    private HttpStatus status;
+    private final String message;
+    private final String code;
+    private final HttpStatus status;
 
     public HttpResponseException(String message, String code, HttpStatus status) {
         super(message);
