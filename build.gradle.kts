@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.kaansimsek"
-version = "0.0.4"
+version = "0.0.5"
 
 java {
 	toolchain {
@@ -82,6 +82,8 @@ extra["springCloudVersion"] = "2023.0.3"
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	compileOnly("org.springframework.boot:spring-boot-starter-web")
+	annotationProcessor("org.springframework.boot:spring-boot-autoconfigure-processor")
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	compileOnly("org.springframework.cloud:spring-cloud-starter-openfeign")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")

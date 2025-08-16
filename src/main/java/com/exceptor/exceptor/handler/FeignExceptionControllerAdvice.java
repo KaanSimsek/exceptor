@@ -3,12 +3,14 @@ package com.exceptor.exceptor.handler;
 import com.exceptor.exceptor.exception.HttpResponseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.FeignException;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
+@ConditionalOnMissingBean(FeignExceptionControllerAdvice.class)
 public class FeignExceptionControllerAdvice extends ControllerAdvice {
 
     private final ObjectMapper objectMapper;

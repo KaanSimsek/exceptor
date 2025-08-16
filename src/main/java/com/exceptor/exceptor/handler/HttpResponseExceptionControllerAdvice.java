@@ -1,11 +1,13 @@
 package com.exceptor.exceptor.handler;
 
 import com.exceptor.exceptor.exception.HttpResponseException;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
+@ConditionalOnMissingBean(HttpResponseExceptionControllerAdvice.class)
 public class HttpResponseExceptionControllerAdvice extends ControllerAdvice {
 
     @ExceptionHandler(HttpResponseException.class)

@@ -4,6 +4,7 @@ import com.exceptor.exceptor.exception.FieldError;
 import com.exceptor.exceptor.exception.ParameterErrorCode;
 import com.exceptor.exceptor.exception.ParameterException;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -21,6 +22,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
+@ConditionalOnMissingBean(WebParameterExceptionAdvice.class)
 public class WebParameterExceptionAdvice {
 
     @ExceptionHandler(MissingServletRequestParameterException.class)

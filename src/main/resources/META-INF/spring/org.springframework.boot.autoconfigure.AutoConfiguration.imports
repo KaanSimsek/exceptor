@@ -1,0 +1,3 @@
+com.exceptor.exceptor.autoconfigure.HttpResponseExceptionControllerAdviceAutoConfiguration
+com.exceptor.exceptor.autoconfigure.FeignExceptionControllerAdviceAutoConfiguration
+com.exceptor.exceptor.autoconfigure.WebParameterExceptionAdviceAutoConfiguration
