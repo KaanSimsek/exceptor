@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.kaansimsek"
-version = "0.0.6"
+version = "0.0.6.1"
 
 java {
 	toolchain {
